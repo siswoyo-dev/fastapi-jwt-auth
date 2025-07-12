@@ -12,6 +12,12 @@ Step 4:
 python.exe -m pip install --upgrade pip
 
 Step 5:
+
+Please downgrade bcrypt to a compatible version, the below version works well with passlib
+
+pip install bcrypt==3.2.0
+
+Step 5:
 uvicorn main:app --reload
 
 Step 6:
