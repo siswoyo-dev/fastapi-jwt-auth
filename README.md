@@ -17,23 +17,23 @@ Please downgrade bcrypt to a compatible version, the below version works well wi
 
 pip install bcrypt==3.2.0
 
-Step 5:
+Step 6:
 uvicorn main:app --reload
 
-Step 6:
+Step 7:
 
 http://127.0.0.1:8000/redoc
 
 Download OpenAPI specification
 
-Step 7:
+Step 8:
 
 Create database test 
 
-Step 8:
+Step 9:
 
 Create user using Postman or Insomnia
 
-Step 9: 
+Step 10: 
 
 Right click index.html, open with Live Server. And then login, then will appear home.html when we success to login.
