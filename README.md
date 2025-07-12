@@ -19,3 +19,15 @@ Step 6:
 http://127.0.0.1:8000/redoc
 
 Download OpenAPI specification
+
+Step 7:
+
+Create database test 
+
+Step 8:
+
+Create user using Postman or Insomnia
+
+Step 9: 
+
+Right click index.html, open with Live Server. And then login, then will appear home.html when we success to login.
