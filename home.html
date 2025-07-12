@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .container {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        button {
+            background-color: #f44336;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #d32f2f;
+        }
+        #apiResponse {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f0f0f0;
+            white-space: pre-wrap;
+        }
+        .user-info {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <h1>Welcome to the Home Page</h1>
+            <p>You are successfully logged in!</p>
+            <button onclick="logout()">Logout</button>
+        </div>
+        
+        <h2>Make Authenticated API Request</h2>
+        <button onclick="makeAuthenticatedRequest()">Test API</button>
+        <div id="apiResponse">API response will appear here</div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script>
+        // Check authentication on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!isAuthenticated()) {
+                window.location.href = 'index.html';
+            }
+        });
+
+        async function makeAuthenticatedRequest() {
+            const token = localStorage.getItem('access_token');
+            const responseDiv = document.getElementById('apiResponse');
+            
+            try {
+                const response = await fetch('http://localhost:8000/', {
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                responseDiv.textContent = JSON.stringify(data, null, 2);
+                responseDiv.style.backgroundColor = '#e8f5e9';
+                
+            } catch (error) {
+                responseDiv.textContent = 'Error: ' + error.message;
+                responseDiv.style.backgroundColor = '#ffebee';
+                console.error('Error:', error);
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('access_token');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>
