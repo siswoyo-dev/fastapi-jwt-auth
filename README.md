@@ -38,4 +38,6 @@ Create user using Postman or Insomnia
 
 ## Step 10: 
 
-Right click index.html, open with Live Server. And then login, then will appear home.html when we success to login.
+Right click login/index.html, open with Live Server. And then login, then will appear home.html when we success to login.
+
+http://127.0.0.1:5500/login/index.html
