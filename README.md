@@ -1,5 +1,11 @@
 # FastAPI and JWT Authentication
 
+## Technologies
+1. Python - Framework FastAPI
+2. Database - PosgreSQL
+
+# How to use this code?
+
 ## Step 1:
 python -m venv venv
 
