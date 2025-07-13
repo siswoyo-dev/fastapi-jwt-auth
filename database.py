@@ -7,7 +7,7 @@ DB_HOST = "localhost"
 DB_NAME = "test"
 DB_USER = "postgres"
 DB_PASSWORD = "12345678"
-DB_PORT = 5435
+DB_PORT = 5435  # change the DB_PORT, when you use other port.
 
 URL_DATABASE = f"postgresql://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 engine = create_engine(URL_DATABASE)
